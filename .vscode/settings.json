@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "gpio.h": "c",
+        "mini_uart.h": "c",
+        "utils.h": "c",
+        "base.h": "c"
+    }
+}
