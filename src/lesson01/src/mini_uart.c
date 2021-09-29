@@ -1,5 +1,5 @@
 #include "utils.h"
-#include "peripherals/uart.h"
+#include "peripherals/mini_uart.h"
 #include "peripherals/gpio.h"
 
 #define CLK_FRQ 250000000
@@ -8,7 +8,7 @@
 void uart_send ( char c )
 {
 	while(1) {
-		if(get32(UART_FR)&0x20) 
+		if(!(get32(UART_FR)&0x20))
 			break;
 	}
 	put32(UART_DR, c);
@@ -17,7 +17,7 @@ void uart_send ( char c )
 char uart_recv ( void )
 {
 	while(1) {
-		if(get32(UART_FR)&0x10) 
+		if(!(get32(UART_FR)&0x10))
 			break;
 	}
 	return(get32(UART_DR)&0xFF);
@@ -37,9 +37,9 @@ void uart_init ( void )
 
 	selector = get32(GPFSEL1);
 	selector &= ~(7<<12);                   // clean gpio14
-	selector |= 2<<12;                      // set alt5 for gpio14
+	selector |= 4<<12;                      // set alt5 for gpio14
 	selector &= ~(7<<15);                   // clean gpio15
-	selector |= 2<<15;                      // set alt5 for gpio15
+	selector |= 4<<15;                      // set alt5 for gpio15
 	put32(GPFSEL1,selector);
 
 	put32(GPPUD,0);
@@ -48,8 +48,7 @@ void uart_init ( void )
 	delay(150);
 	put32(GPPUDCLK0,0);
 
-	put32(UART_CR,0);            
-	put32(UART_IMSC, 0);    
+	// put32(UART_CR,0);                
 
 	put32(UART_IBRD,26);                
 	put32(UART_FBRD,3);               
