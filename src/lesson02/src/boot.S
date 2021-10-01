@@ -45,6 +45,9 @@ el2_entry:
 	ldr	x0, =SPSR_EL1_VALUE
 	msr	spsr_el2, x0
 
+	ldr x0, =CPACR_EL1_FPEN
+	msr cpacr_el1, x0
+
 	adr	x0, el1_entry		
 	msr	elr_el2, x0
 

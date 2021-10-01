@@ -41,4 +41,6 @@
 #define SPSR_EL1_VALUE		(SPSR_MASK_ALL | SPSR_EL1h) // according to Page 393 of AArch64-Reference-Manual.
 #define SPSR_EL2_VALUE		(SPSR_MASK_ALL | SPSR_EL2h)
 
+#define CPACR_EL1_FPEN (3 << 20)
+
 #endif
