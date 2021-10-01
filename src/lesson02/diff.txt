@@ -1,0 +1,114 @@
+ 80c:	a9ae7bfd 	stp	x29, x30, [sp, #-288]!	      |	 80c:	a9b67bfd 	stp	x29, x30, [sp, #-160]!
+ 818:	f90077a1 	str	x1, [x29, #232]		      |	 818:	f90037a1 	str	x1, [x29, #104]
+ 81c:	f9007ba2 	str	x2, [x29, #240]		      |	 81c:	f9003ba2 	str	x2, [x29, #112]
+ 820:	f9007fa3 	str	x3, [x29, #248]		      |	 820:	f9003fa3 	str	x3, [x29, #120]
+ 824:	f90083a4 	str	x4, [x29, #256]		      |	 824:	f90043a4 	str	x4, [x29, #128]
+ 828:	f90087a5 	str	x5, [x29, #264]		      |	 828:	f90047a5 	str	x5, [x29, #136]
+ 82c:	f9008ba6 	str	x6, [x29, #272]		      |	 82c:	f9004ba6 	str	x6, [x29, #144]
+ 830:	f9008fa7 	str	x7, [x29, #280]		      |	 830:	f9004fa7 	str	x7, [x29, #152]
+ 834:	3d801ba0 	str	q0, [x29, #96]		      |	 834:	910283a0 	add	x0, x29, #0xa0
+ 838:	3d801fa1 	str	q1, [x29, #112]		      |	 838:	f90023a0 	str	x0, [x29, #64]
+ 83c:	3d8023a2 	str	q2, [x29, #128]		      |	 83c:	910283a0 	add	x0, x29, #0xa0
+ 840:	3d8027a3 	str	q3, [x29, #144]		      |	 840:	f90027a0 	str	x0, [x29, #72]
+ 844:	3d802ba4 	str	q4, [x29, #160]		      |	 844:	910183a0 	add	x0, x29, #0x60
+ 848:	3d802fa5 	str	q5, [x29, #176]		      |	 848:	f9002ba0 	str	x0, [x29, #80]
+ 84c:	3d8033a6 	str	q6, [x29, #192]		      |	 84c:	128006e0 	mov	w0, #0xffffffc8            
+ 850:	3d8037a7 	str	q7, [x29, #208]		      |	 850:	b9005ba0 	str	w0, [x29, #88]
+ 854:	910483a0 	add	x0, x29, #0x120		      |	 854:	b9005fbf 	str	wzr, [x29, #92]
+ 858:	f90023a0 	str	x0, [x29, #64]		      |	 858:	90000000 	adrp	x0, 0 <ui2a>
+ 85c:	910483a0 	add	x0, x29, #0x120		      |	 85c:	91000000 	add	x0, x0, #0x0
+ 860:	f90027a0 	str	x0, [x29, #72]		      |	 860:	f9400004 	ldr	x4, [x0]
+ 864:	910383a0 	add	x0, x29, #0xe0		      |	 864:	90000000 	adrp	x0, 0 <ui2a>
+ 868:	f9002ba0 	str	x0, [x29, #80]		      |	 868:	91000000 	add	x0, x0, #0x0
+ 86c:	128006e0 	mov	w0, #0xffffffc8               |	 86c:	f9400005 	ldr	x5, [x0]
+ 870:	b9005ba0 	str	w0, [x29, #88]		      |	 870:	910043a2 	add	x2, x29, #0x10
+ 874:	12800fe0 	mov	w0, #0xffffff80               |	 874:	910103a3 	add	x3, x29, #0x40
+ 878:	b9005fa0 	str	w0, [x29, #92]		      |	 878:	a9400460 	ldp	x0, x1, [x3]
+ 87c:	90000000 	adrp	x0, 0 <ui2a>		      |	 87c:	a9000440 	stp	x0, x1, [x2]
+ 880:	91000000 	add	x0, x0, #0x0		      |	 880:	a9410460 	ldp	x0, x1, [x3, #16]
+ 884:	f9400004 	ldr	x4, [x0]		      |	 884:	a9010440 	stp	x0, x1, [x2, #16]
+ 888:	90000000 	adrp	x0, 0 <ui2a>		      |	 888:	910043a0 	add	x0, x29, #0x10
+ 88c:	91000000 	add	x0, x0, #0x0		      |	 88c:	aa0003e3 	mov	x3, x0
+ 890:	f9400005 	ldr	x5, [x0]		      |	 890:	f9401fa2 	ldr	x2, [x29, #56]
+ 894:	910043a2 	add	x2, x29, #0x10		      |	 894:	aa0503e1 	mov	x1, x5
+ 898:	910103a3 	add	x3, x29, #0x40		      |	 898:	aa0403e0 	mov	x0, x4
+ 89c:	a9400460 	ldp	x0, x1, [x3]		      |	 89c:	94000000 	bl	38c <tfp_format>
+ 8a0:	a9000440 	stp	x0, x1, [x2]		      |	 8a0:	d503201f 	nop
+ 8a4:	a9410460 	ldp	x0, x1, [x3, #16]	      |	 8a4:	a8ca7bfd 	ldp	x29, x30, [sp], #160
+ 8a8:	a9010440 	stp	x0, x1, [x2, #16]	      |	 8a8:	d65f03c0 	ret
+ 8ac:	910043a0 	add	x0, x29, #0x10		      |
+ 8b0:	aa0003e3 	mov	x3, x0			      |	00000000000008ac <putcp>:
+ 8b4:	f9401fa2 	ldr	x2, [x29, #56]		      |	 8ac:	d10043ff 	sub	sp, sp, #0x10
+ 8b8:	aa0503e1 	mov	x1, x5			      |	 8b0:	f90007e0 	str	x0, [sp, #8]
+ 8bc:	aa0403e0 	mov	x0, x4			      |	 8b4:	39001fe1 	strb	w1, [sp, #7]
+ 8c0:	94000000 	bl	38c <tfp_format>	      |	 8b8:	f94007e0 	ldr	x0, [sp, #8]
+ 8c4:	d503201f 	nop				      |	 8bc:	f9400000 	ldr	x0, [x0]
+ 8c8:	a8d27bfd 	ldp	x29, x30, [sp], #288	      |	 8c0:	91000402 	add	x2, x0, #0x1
+ 8cc:	d65f03c0 	ret				      |	 8c4:	f94007e1 	ldr	x1, [sp, #8]
+							      |	 8c8:	f9000022 	str	x2, [x1]
+00000000000008d0 <putcp>:				      |	 8cc:	39401fe1 	ldrb	w1, [sp, #7]
+ 8d0:	d10043ff 	sub	sp, sp, #0x10		      |	 8d0:	39000001 	strb	w1, [x0]
+ 8d4:	f90007e0 	str	x0, [sp, #8]		      |	 8d4:	d503201f 	nop
+ 8d8:	39001fe1 	strb	w1, [sp, #7]		      |	 8d8:	910043ff 	add	sp, sp, #0x10
+ 8dc:	f94007e0 	ldr	x0, [sp, #8]		      |	 8dc:	d65f03c0 	ret
+ 8e0:	f9400000 	ldr	x0, [x0]		      |
+ 8e4:	91000402 	add	x2, x0, #0x1		      |	00000000000008e0 <tfp_sprintf>:
+ 8e8:	f94007e1 	ldr	x1, [sp, #8]		      |	 8e0:	a9b77bfd 	stp	x29, x30, [sp, #-144]!
+ 8ec:	f9000022 	str	x2, [x1]		      |	 8e4:	910003fd 	mov	x29, sp
+ 8f0:	39401fe1 	ldrb	w1, [sp, #7]		      |	 8e8:	f9001fa0 	str	x0, [x29, #56]
+ 8f4:	39000001 	strb	w1, [x0]		      |	 8ec:	f9001ba1 	str	x1, [x29, #48]
+ 8f8:	d503201f 	nop				      |	 8f0:	f90033a2 	str	x2, [x29, #96]
+ 8fc:	910043ff 	add	sp, sp, #0x10		      |	 8f4:	f90037a3 	str	x3, [x29, #104]
+ 900:	d65f03c0 	ret				      |	 8f8:	f9003ba4 	str	x4, [x29, #112]
+							      |	 8fc:	f9003fa5 	str	x5, [x29, #120]
+0000000000000904 <tfp_sprintf>:				      |	 900:	f90043a6 	str	x6, [x29, #128]
+ 904:	a9af7bfd 	stp	x29, x30, [sp, #-272]!	      |	 904:	f90047a7 	str	x7, [x29, #136]
+ 908:	910003fd 	mov	x29, sp			      |	 908:	910243a0 	add	x0, x29, #0x90
+ 90c:	f9001fa0 	str	x0, [x29, #56]		      |	 90c:	f90023a0 	str	x0, [x29, #64]
+ 910:	f9001ba1 	str	x1, [x29, #48]		      |	 910:	910243a0 	add	x0, x29, #0x90
+ 914:	f90073a2 	str	x2, [x29, #224]		      |	 914:	f90027a0 	str	x0, [x29, #72]
+ 918:	f90077a3 	str	x3, [x29, #232]		      |	 918:	910183a0 	add	x0, x29, #0x60
+ 91c:	f9007ba4 	str	x4, [x29, #240]		      |	 91c:	f9002ba0 	str	x0, [x29, #80]
+ 920:	f9007fa5 	str	x5, [x29, #248]		      |	 920:	128005e0 	mov	w0, #0xffffffd0            
+ 924:	f90083a6 	str	x6, [x29, #256]		      |	 924:	b9005ba0 	str	w0, [x29, #88]
+ 928:	f90087a7 	str	x7, [x29, #264]		      |	 928:	b9005fbf 	str	wzr, [x29, #92]
+ 92c:	3d801ba0 	str	q0, [x29, #96]		      |	 92c:	910043a2 	add	x2, x29, #0x10
+ 930:	3d801fa1 	str	q1, [x29, #112]		      |	 930:	910103a3 	add	x3, x29, #0x40
+ 934:	3d8023a2 	str	q2, [x29, #128]		      |	 934:	a9400460 	ldp	x0, x1, [x3]
+ 938:	3d8027a3 	str	q3, [x29, #144]		      |	 938:	a9000440 	stp	x0, x1, [x2]
+ 93c:	3d802ba4 	str	q4, [x29, #160]		      |	 93c:	a9410460 	ldp	x0, x1, [x3, #16]
+ 940:	3d802fa5 	str	q5, [x29, #176]		      |	 940:	a9010440 	stp	x0, x1, [x2, #16]
+ 944:	3d8033a6 	str	q6, [x29, #192]		      |	 944:	910043a2 	add	x2, x29, #0x10
+ 948:	3d8037a7 	str	q7, [x29, #208]		      |	 948:	90000000 	adrp	x0, 0 <ui2a>
+ 94c:	910443a0 	add	x0, x29, #0x110		      |	 94c:	91000001 	add	x1, x0, #0x0
+ 950:	f90023a0 	str	x0, [x29, #64]		      |	 950:	9100e3a0 	add	x0, x29, #0x38
+ 954:	910443a0 	add	x0, x29, #0x110		      |	 954:	aa0203e3 	mov	x3, x2
+ 958:	f90027a0 	str	x0, [x29, #72]		      |	 958:	f9401ba2 	ldr	x2, [x29, #48]
+ 95c:	910383a0 	add	x0, x29, #0xe0		      |	 95c:	94000000 	bl	38c <tfp_format>
+ 960:	f9002ba0 	str	x0, [x29, #80]		      |	 960:	9100e3a0 	add	x0, x29, #0x38
+ 964:	128005e0 	mov	w0, #0xffffffd0               |	 964:	52800001 	mov	w1, #0x0                   
+ 968:	b9005ba0 	str	w0, [x29, #88]		      |	 968:	97ffffd1 	bl	8ac <putcp>
+ 96c:	12800fe0 	mov	w0, #0xffffff80               |	 96c:	d503201f 	nop
+ 970:	b9005fa0 	str	w0, [x29, #92]		      |	 970:	a8c97bfd 	ldp	x29, x30, [sp], #144
+ 974:	910043a2 	add	x2, x29, #0x10		      |	 974:	d65f03c0 	ret
+ 978:	910103a3 	add	x3, x29, #0x40		      <
+ 97c:	a9400460 	ldp	x0, x1, [x3]		      <
+ 980:	a9000440 	stp	x0, x1, [x2]		      <
+ 984:	a9410460 	ldp	x0, x1, [x3, #16]	      <
+ 988:	a9010440 	stp	x0, x1, [x2, #16]	      <
+ 98c:	910043a2 	add	x2, x29, #0x10		      <
+ 990:	90000000 	adrp	x0, 0 <ui2a>		      <
+ 994:	91000001 	add	x1, x0, #0x0		      <
+ 998:	9100e3a0 	add	x0, x29, #0x38		      <
+ 99c:	aa0203e3 	mov	x3, x2			      <
+ 9a0:	f9401ba2 	ldr	x2, [x29, #48]		      <
+ 9a4:	94000000 	bl	38c <tfp_format>	      <
+ 9a8:	9100e3a0 	add	x0, x29, #0x38		      <
+ 9ac:	52800001 	mov	w1, #0x0                      <
+ 9b0:	97ffffc8 	bl	8d0 <putcp>		      <
+ 9b4:	d503201f 	nop				      <
+ 9b8:	a8d17bfd 	ldp	x29, x30, [sp], #272	      <
+ 9bc:	d65f03c0 	ret				      <
+  14:	352e3720 	cbnz	w0, 5c6f8 <tfp_sprintf+0x5bdf |	  14:	352e3720 	cbnz	w0, 5c6f8 <tfp_sprintf+0x5be1
+  24:	302e3831 	adr	x17, 5c729 <tfp_sprintf+0x5be |	  24:	302e3831 	adr	x17, 5c729 <tfp_sprintf+0x5be
+  2c:	302e352e 	adr	x14, 5c6d1 <tfp_sprintf+0x5bd |	  2c:	302e352e 	adr	x14, 5c6d1 <tfp_sprintf+0x5bd
