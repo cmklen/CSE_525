@@ -55,14 +55,17 @@ void schedule(void)
 
 void printTaskInfo(struct task_struct *taskInfo, int taskCount)
 {
-	printf("\n\rtask[%d] State = %d\n\r", taskCount, taskInfo->state);
-	printf("task[%d] Counter = %d\n\r", taskCount, taskInfo->counter);
-	printf("task[%d] Prioirty = %d\n\r", taskCount, taskInfo->priority);
-	printf("task[%d] Preempt Count = %d\n\r", taskCount, taskInfo->preempt_count);
-	printf("task[%d] Frame Pointer = 0x%08x\n\r", taskCount, taskInfo->cpu_context.fp);
-	printf("task[%d] Stack Pointer = 0x%08x\n\r", taskCount, taskInfo->cpu_context.sp);
-	printf("task[%d] Program Counter = 0x%08x\n\r", taskCount, taskInfo->cpu_context.pc);
-	printf("\n\r****************\r\n");
+	if (taskInfo->state == TASK_RUNNING)
+	{
+		printf("\n\rtask[%d] State = %d\n\r", taskCount, taskInfo->state);
+		printf("task[%d] Counter = %d\n\r", taskCount, taskInfo->counter);
+		printf("task[%d] Prioirty = %d\n\r", taskCount, taskInfo->priority);
+		printf("task[%d] Preempt Count = %d\n\r", taskCount, taskInfo->preempt_count);
+		printf("task[%d] Frame Pointer = 0x%08x\n\r", taskCount, taskInfo->cpu_context.fp);
+		printf("task[%d] Stack Pointer = 0x%08x\n\r", taskCount, taskInfo->cpu_context.sp);
+		printf("task[%d] Program Counter = 0x%08x\n\r", taskCount, taskInfo->cpu_context.pc);
+		printf("\n\r****************\r\n");
+	}
 }
 
 void switch_to(struct task_struct * next) 

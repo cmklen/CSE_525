@@ -1,8 +1,9 @@
 #include "mm.h"
 #include "sched.h"
 #include "entry.h"
+#include "printf.h"
 
-int copy_process(unsigned long fn, unsigned long arg)
+int copy_process(unsigned long fn, unsigned long arg, unsigned int priority)
 {
 	preempt_disable();
 	struct task_struct *p;
@@ -10,7 +11,7 @@ int copy_process(unsigned long fn, unsigned long arg)
 	p = (struct task_struct *) get_free_page();
 	if (!p)
 		return 1;
-	p->priority = current->priority;
+	p->priority = priority;
 	p->state = TASK_RUNNING;
 	p->counter = p->priority;
 	p->preempt_count = 1; //disable preemtion until schedule_tail
@@ -21,6 +22,14 @@ int copy_process(unsigned long fn, unsigned long arg)
 	p->cpu_context.sp = (unsigned long)p + THREAD_SIZE;
 	int pid = nr_tasks++;
 	task[pid] = p;	
+
+	printf("\n\r******** Task[%d] created ********\r\n", pid);
+	printf("\n\rTask allocated at 0x%08x.\r\n", p);
+	printf("Function = 0x%08x. \r\n", p->cpu_context.x19);
+	printf("Arguments = 0x%08x. \r\n", p->cpu_context.x20);
+	printf("Program Counter  = 0x%08x. \r\n", p->cpu_context.pc);
+	printf("Stack Pointer  = 0x%08x. \r\n", p->cpu_context.sp);
+
 	preempt_enable();
 	return 0;
 }
