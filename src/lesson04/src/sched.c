@@ -53,10 +53,28 @@ void schedule(void)
 	_schedule();
 }
 
+void printTaskInfo(struct task_struct *taskInfo, int taskCount)
+{
+	printf("\n\rtask[%d] Counter = %d\n\r", taskCount, taskInfo->counter);
+	printf("task[%d] Prioirty = %d\n\r", taskCount, taskInfo->priority);
+	printf("task[%d] Preempt Count = %d\n\r", taskCount, taskInfo->preempt_count);
+	printf("task[%d] Frame Pointer = 0x%08x\n\r", taskCount, taskInfo->cpu_context.fp);
+	printf("task[%d] Stack Pointer = 0x%08x\n\r", taskCount, taskInfo->cpu_context.sp);
+	printf("task[%d] Program Counter = 0x%08x\n\r", taskCount, taskInfo->cpu_context.pc);
+	printf("\n\r****************\r\n");
+}
+
 void switch_to(struct task_struct * next) 
 {
 	if (current == next) 
 		return;
+
+	printf("\n\r\n\r******** Task switch ********\r\n");
+	for(int t = 0; t < NR_TASKS; t++) {
+		printTaskInfo(task[t], t);
+	}
+	printf("\n\rOutput: ");
+
 	struct task_struct * prev = current;
 	current = next;
 	cpu_switch_to(prev, next);
