@@ -55,7 +55,7 @@ void schedule(void)
 
 void printTaskInfo(struct task_struct *taskInfo, int taskCount)
 {
-	printf("\n\rtask[%d] Prioirty = %d\n\r", taskCount, taskInfo->state);
+	printf("\n\rtask[%d] State = %d\n\r", taskCount, taskInfo->state);
 	printf("task[%d] Counter = %d\n\r", taskCount, taskInfo->counter);
 	printf("task[%d] Prioirty = %d\n\r", taskCount, taskInfo->priority);
 	printf("task[%d] Preempt Count = %d\n\r", taskCount, taskInfo->preempt_count);
