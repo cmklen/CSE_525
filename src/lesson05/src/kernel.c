@@ -43,6 +43,11 @@ void user_process(){
 		printf("Error while clonning process 2\n\r");
 		return;
 	} 
+	stack = call_sys_priority(err, 0xa);
+	if (stack < 0) {
+		printf("Error while allocating stack for process 1\n\r");
+		return;
+	}
 	call_sys_exit();
 }
 
