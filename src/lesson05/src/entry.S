@@ -160,7 +160,16 @@ el0_sync:
 	lsr	x24, x25, #ESR_ELx_EC_SHIFT		// exception class
 	cmp	x24, #ESR_ELx_EC_SVC64			// SVC in 64-bit state
 	b.eq	el0_svc
+	cmp x24, #ESR_ELx_EC_SYS_INSTR  // trapped
+	b.eq    el0_sys_instr
 	handle_invalid_entry 0, SYNC_ERROR
+
+el0_sys_instr:
+	bl show_data_abort_message
+	ldr	x22, [sp, #16 * 16]         // skip the trapped mrs instruction
+	add x22, x22, #4
+	str x22, [sp, #16 * 16]
+	b ret_to_user
 
 sc_nr	.req	x25					// number of system calls
 scno	.req	x26					// syscall number

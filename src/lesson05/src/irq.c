@@ -2,6 +2,7 @@
 #include "printf.h"
 #include "timer.h"
 #include "entry.h"
+#include "sched.h"
 #include "peripherals/irq.h"
 
 const char *entry_error_messages[] = {
@@ -39,6 +40,11 @@ void show_invalid_entry_message(int type, unsigned long esr, unsigned long addre
 	printf("%s, ESR: %x, address: %x\r\n", entry_error_messages[type], esr, address);
 }
 
+void show_data_abort_message(unsigned long esr, unsigned long address)
+{
+	printf("Data abort exception, ESR:%x, fault address: %x\r\n", esr, address);
+}
+
 void handle_irq(void)
 {
 	unsigned int irq = get32(IRQ_PENDING_1);
@@ -47,6 +53,6 @@ void handle_irq(void)
 			handle_timer_irq();
 			break;
 		default:
-			printf("Inknown pending irq: %x\r\n", irq);
+			printf("Unknown pending irq: %x\r\n", irq);
 	}
 }

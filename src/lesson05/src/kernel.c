@@ -16,6 +16,9 @@ void user_process1(char *array)
 			call_sys_write(buf);
 			delay(100000);
 		}
+		if(array[0] == 'a') {
+		    get_daif();
+		}
 	}
 }
 
@@ -43,12 +46,11 @@ void user_process(){
 		printf("Error while clonning process 2\n\r");
 		return;
 	} 
-	stack = call_sys_priority(err, 0xa);
+	stack =  call_sys_priority(err, 0xa);
 	if (stack < 0) {
 		printf("Error while allocating stack for process 1\n\r");
 		return;
 	}
-	call_sys_exit();
 }
 
 void kernel_process(){
